@@ -8,10 +8,11 @@ class QuizSerializer(serializers.ModelSerializer):
         model = Quiz
         fields = ['id', 'title', 'description', 'author']
 
-        class QuestionSerializer(serializers.ModelSerializer):
-            class Meta:
-                model = Question
-                fields = ['id', 'quiz', 'question_text']
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = ['id', 'quiz', 'question_text']
 
 
 class AnswerSerializer(serializers.ModelSerializer):

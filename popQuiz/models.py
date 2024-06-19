@@ -10,7 +10,6 @@ from popQuiz.admin import Admin
 
 
 class User(models.Model):
-    user_id = models.IntegerField()
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     email = models.CharField(max_length=100)

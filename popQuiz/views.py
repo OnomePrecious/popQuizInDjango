@@ -4,22 +4,22 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 
-from .models import Quiz
-from .serializers import AppSerializer
+from .models import Quiz, Question
+from .serializers import QuizSerializer, QuestionSerializer
 
 
 # Create your views here.
 @api_view()
 def quiz_questions(request):
     quizzes = Quiz.objects.all()
-    serializer = AppSerializer(quizzes, many=True)
+    serializer = QuizSerializer(quizzes, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view()
-def list_account(request):
-    quizzes = Quiz.objects.all()
-    serializer = AppSerializer(quizzes, many=True)
+def list_of_questions(request):
+    questions = Question.objects.all()
+    serializer = QuestionSerializer(questions, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -30,3 +30,5 @@ def create_quiz(request):
         description = request.POST.get('description')
         author = request.admin
         quiz = Quiz.objects.create(title=title, description=description, author=author)
+        serializer = QuizSerializer(quiz, many=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
