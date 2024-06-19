@@ -10,14 +10,14 @@ from .serializers import QuizSerializer, QuestionSerializer
 
 # Create your views here.
 @api_view()
-def quiz_questions(request):
+def quiz_questions():
     quizzes = Quiz.objects.all()
     serializer = QuizSerializer(quizzes, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view()
-def list_of_questions(request):
+def list_of_questions():
     questions = Question.objects.all()
     serializer = QuestionSerializer(questions, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
