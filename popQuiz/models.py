@@ -1,6 +1,5 @@
 from django.db import models
 
-from popQuiz.admin import Admin
 
 
 # create your models here.
@@ -18,7 +17,7 @@ class User(models.Model):
 class Quiz(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Admin, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Question(models.Model):

@@ -1,11 +1,10 @@
 from django.contrib import admin
 
-import popQuiz
+from .models import User
 
 
 # Register your models here.
-@admin.register(popQuiz)
+@admin.register(User)
 class Admin(admin.ModelAdmin):
-    list_display = ['admin_id', 'first_name', 'last_name', 'password', 'email']
-    list_per_page = 10
-    list_editable = ['first_name', 'last_name', 'account_type']
+    list_display = ['username', 'password', 'email']
+
