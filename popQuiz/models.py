@@ -25,3 +25,9 @@ class Quiz(models.Model):
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question_text = models.TextField()
+
+
+class Answer(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer_text = models.CharField(max_length=255)
+    is_correct = models.BooleanField(default=False)
