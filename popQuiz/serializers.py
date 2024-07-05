@@ -6,13 +6,13 @@ from .models import User, Quiz, Question, Answer
 class QuizSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quiz
-        fields = ['id', 'title', 'description', 'author']
+        fields = ['title', 'description', 'author']
 
 
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ['id', 'quiz', 'question_text']
+        fields = ['quiz', 'question_text']
 
 
 class AnswerSerializer(serializers.ModelSerializer):
