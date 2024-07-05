@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'popQuiz',
-    'rest_framework'
+    'rest_framework',
+    'user',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -125,4 +127,10 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 
+}
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user_create': 'user.serializers.UserCreateSerializer',
+    }
 }
